@@ -211,21 +211,21 @@ export async function generateTreeCompensationData() {
 
     const data = [
       {
-        category: statusTreeCutting[0],
+        category: statusTreeCompensation[0],
         value: nocompen,
         sliceSettings: {
           fill: am5.color(colorsCompen[0]),
         },
       },
       {
-        category: statusTreeCutting[1],
+        category: statusTreeCompensation[1],
         value: processing,
         sliceSettings: {
           fill: am5.color(colorsCompen[1]),
         },
       },
       {
-        category: statusTreeCutting[2],
+        category: statusTreeCompensation[2],
         value: compen,
         sliceSettings: {
           fill: am5.color(colorsCompen[2]),
