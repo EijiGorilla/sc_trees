@@ -4,6 +4,16 @@ import UniqueValueRenderer from '@arcgis/core/renderers/UniqueValueRenderer';
 import SimpleRenderer from '@arcgis/core/renderers/SimpleRenderer';
 import { TextSymbol, SimpleMarkerSymbol } from '@arcgis/core/symbols';
 
+/* Standalone table for Dates */
+export const dateTable = new FeatureLayer({
+  portalItem: {
+    id: '68fe46f717f94218a9adcbc1dfb908b7',
+    portal: {
+      url: 'https://gis.railway-sector.com/portal',
+    },
+  },
+});
+
 /* Chainage Layer  */
 var labelChainage = new LabelClass({
   labelExpressionInfo: { expression: '$feature.KmSpot' },
