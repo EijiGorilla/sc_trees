@@ -2,12 +2,12 @@ import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
 import LabelClass from '@arcgis/core/layers/support/LabelClass';
 import UniqueValueRenderer from '@arcgis/core/renderers/UniqueValueRenderer';
 import SimpleRenderer from '@arcgis/core/renderers/SimpleRenderer';
-import { TextSymbol, SimpleMarkerSymbol } from '@arcgis/core/symbols';
+import { TextSymbol, SimpleMarkerSymbol, SimpleLineSymbol } from '@arcgis/core/symbols';
 
 /* Standalone table for Dates */
 export const dateTable = new FeatureLayer({
   portalItem: {
-    id: '68fe46f717f94218a9adcbc1dfb908b7',
+    id: 'b2a118b088a44fa0a7a84acbe0844cb2',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
@@ -42,12 +42,12 @@ var chainageRenderer = new SimpleRenderer({
 
 export const chainageLayer = new FeatureLayer({
   portalItem: {
-    id: '299f80a1d0844e109dcf354f9463f6b4',
+    id: 'e09b9af286204939a32df019403ef438',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
-  layerId: 5,
+  layerId: 2,
   title: 'Chainage',
   elevationInfo: {
     mode: 'relative-to-ground',
@@ -61,17 +61,19 @@ export const chainageLayer = new FeatureLayer({
 });
 
 /* ROW Layer */
+var prowRenderer = new SimpleRenderer({
+  symbol: new SimpleLineSymbol({
+    color: '#ff0000',
+    width: '2px',
+  }),
+});
+
 export const prowLayer = new FeatureLayer({
-  portalItem: {
-    id: '299f80a1d0844e109dcf354f9463f6b4',
-    portal: {
-      url: 'https://gis.railway-sector.com/portal',
-    },
-  },
-  layerId: 1,
+  url: 'https://gis.railway-sector.com/server/rest/services/SC_Alignment/FeatureServer/5',
   title: 'PROW',
   definitionExpression: "Extension = 'SC'",
   popupEnabled: false,
+  renderer: prowRenderer,
 });
 prowLayer.listMode = 'hide';
 
@@ -93,12 +95,12 @@ var labelClass = new LabelClass({
 
 export const stationLayer = new FeatureLayer({
   portalItem: {
-    id: '299f80a1d0844e109dcf354f9463f6b4',
+    id: 'e09b9af286204939a32df019403ef438',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
-  layerId: 2,
+  layerId: 6,
   title: 'SC Stations',
   labelingInfo: [labelClass],
   elevationInfo: {
@@ -167,12 +169,12 @@ let treeCuttingRenderer = new UniqueValueRenderer({
 
 export const treeCuttingLayer = new FeatureLayer({
   portalItem: {
-    id: '5eae7c0082e54d5fad5e98128c243998',
+    id: 'dfd0bca99c754002b55459004b684415',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
-  layerId: 1,
+  layerId: 2,
   elevationInfo: {
     mode: 'on-the-ground',
   },
@@ -269,12 +271,12 @@ const treeCompensationRenderer = new UniqueValueRenderer({
 
 export const treeCompensationLayer = new FeatureLayer({
   portalItem: {
-    id: '5eae7c0082e54d5fad5e98128c243998',
+    id: 'dfd0bca99c754002b55459004b684415',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
-  layerId: 1,
+  layerId: 2,
   outFields: ['*'],
   title: 'Tree Compensation',
   renderer: treeCompensationRenderer,
@@ -490,12 +492,12 @@ let treeConservationRenderer = new UniqueValueRenderer({
 
 export const treeConservationLayer = new FeatureLayer({
   portalItem: {
-    id: '5eae7c0082e54d5fad5e98128c243998',
+    id: 'dfd0bca99c754002b55459004b684415',
     portal: {
       url: 'https://gis.railway-sector.com/portal',
     },
   },
-  layerId: 1,
+  layerId: 2,
   outFields: ['*'],
   title: 'Tree Conservation',
   renderer: treeConservationRenderer,
