@@ -56,7 +56,7 @@ export const chainageLayer = new FeatureLayer({
   minScale: 150000,
   maxScale: 0,
   renderer: chainageRenderer,
-  outFields: ['*'],
+
   popupEnabled: false,
 });
 
@@ -178,7 +178,7 @@ export const treeCuttingLayer = new FeatureLayer({
   elevationInfo: {
     mode: 'on-the-ground',
   },
-  outFields: ['*'],
+
   title: 'Tree Cutting',
   renderer: treeCuttingRenderer,
   popupTemplate: {
@@ -277,7 +277,7 @@ export const treeCompensationLayer = new FeatureLayer({
     },
   },
   layerId: 2,
-  outFields: ['*'],
+
   title: 'Tree Compensation',
   renderer: treeCompensationRenderer,
   popupTemplate: {
@@ -498,7 +498,7 @@ export const treeConservationLayer = new FeatureLayer({
     },
   },
   layerId: 2,
-  outFields: ['*'],
+
   title: 'Tree Conservation',
   renderer: treeConservationRenderer,
   popupTemplate: {
