@@ -47,6 +47,14 @@ function App() {
   const [initContractPackage, setInitContractPackage] = useState();
   const [contractPackage, setContractPackage] = useState<null | any>(null);
 
+  //
+  const [treeCuttingLayerLoaded, setTreeCuttingLayerLoaded] = useState<any>();
+  useEffect(() => {
+    treeCuttingLayer.load().then(() => {
+      setTreeCuttingLayerLoaded(treeCuttingLayer.loadStatus);
+    });
+  });
+
   //**** Create dropdonw list */
   useEffect(() => {
     const dropdownData = new DropDownData({
@@ -139,7 +147,7 @@ function App() {
           </CalciteTabNav>
           {/* CalciteTab: Tree Cutting */}
           <CalciteTab>
-            {tabList === 'TreeCutting' && (
+            {tabList === 'TreeCutting' && treeCuttingLayerLoaded === 'loaded' && (
               <TreeCuttingChart
                 contractp={contractPackage === null ? '' : contractPackage.field1}
               />
