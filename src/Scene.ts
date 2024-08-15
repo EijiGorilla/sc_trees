@@ -54,7 +54,8 @@ export const basemaps = new BasemapGallery({
 // highlight super urgent
 export const layerList = new LayerList({
   view: view,
-  selectionEnabled: true,
+  visibilityAppearance: 'checkbox',
+  selectionMode: 'multiple',
   container: undefined,
   listItemCreatedFunction: (event) => {
     const item = event.item;
@@ -97,7 +98,7 @@ const searchWidget = new Search({
 const searchExpand = new Expand({
   view: view,
   content: searchWidget,
-  expandIconClass: 'esri-icon-search',
+  expandIcon: 'chevrons-right',
   group: 'top-right',
 });
 view.ui.add(searchExpand, {
